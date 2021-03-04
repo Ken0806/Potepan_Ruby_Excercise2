@@ -3,7 +3,7 @@ hand = %w[グー チョキ パー]
 janken_game_end = false
 
 # 関数
-def look_over_there_game
+def look_over_there_game?
   direction = %w[上 下 左 右]
   loop do
     puts 'あっちむいて〜'
@@ -51,8 +51,8 @@ while janken_game_end == false
       puts '------------------'
       janken_game_end = false
     # じゃんけんにあなたが勝った場合
-    elsif (my_hand == 0 && opponent_hand == 1) || (my_hand = 1 && opponent_hand == 2) || (my_hand == 2 && opponent_hand == 3)
-      your_victory = look_over_there_game
+    elsif (my_hand == 0 && opponent_hand == 1) || (my_hand == 1 && opponent_hand == 2) || (my_hand == 2 && opponent_hand == 0)
+      your_victory = look_over_there_game?
       if your_victory == true
         puts 'あなたの勝ちです！！！'
         puts '-------END-------'
@@ -63,7 +63,7 @@ while janken_game_end == false
       end
     # じゃんけんにあなたが負けた場合
     else
-      opponent_victory = look_over_there_game
+      opponent_victory = look_over_there_game?
       if opponent_victory == true
         puts 'あなたの負けです......'
         puts '-------END-------'
