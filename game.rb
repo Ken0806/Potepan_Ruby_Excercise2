@@ -1,10 +1,10 @@
 # 変数・配列等の定義
-hand = ['グー', 'チョキ', 'パー']
+hand = %w[グー チョキ パー]
 janken_game_end = false
 
-#関数
+# 関数
 def look_over_there_game
-  direction = ['上', '下', '左', '右']
+  direction = %w[上 下 左 右]
   loop do
     puts 'あっちむいて〜'
     puts '0(上)1(下)2(左)3(右)'
@@ -18,11 +18,9 @@ def look_over_there_game
       puts "あなた：#{direction[my_direction]}"
       puts "相手：#{direction[opponent_direction]}"
       puts '------------------'
-      if my_direction == opponent_direction
-        return true
-      else
-        return false
-      end
+      return true if my_direction == opponent_direction
+
+      return false
     else
       puts '0,1,2,3のいずれかを入力してください。'
       puts '------------------'
